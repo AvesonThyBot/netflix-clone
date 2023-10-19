@@ -6,4 +6,5 @@ Netflix clone practise
 * Have a small data storage or SQL using XAMPP
 * have responsive ui
 * use var() in css for easier customiseablity
+* learn to use git
 
