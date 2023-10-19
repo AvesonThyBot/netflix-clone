@@ -4,6 +4,15 @@
 	margin: 0;
 }
 
+/* Netflix colour pallete */
+:root {
+	--text: #e6e6e6;
+	--background: #141414;
+	--primary: #000000;
+	--secondary: #ffffff;
+	--accent: #b9090c;
+}
+
 /* navbar brand image */
 .navbar-brand {
 	width: 200px;
