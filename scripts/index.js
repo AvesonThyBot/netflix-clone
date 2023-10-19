@@ -15,3 +15,6 @@ function displayData() {
 }
 
 // displayData();
+
+// --------------- Extra attributes ---------------
+document.querySelector(".navbar-brand").setAttribute("draggable", false);
