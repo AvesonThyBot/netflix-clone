@@ -13,6 +13,7 @@
 	--secondary: #ffffff;
 	--accent: #b9090c;
 	--secondary-hover: #888888;
+	--unselected: #acacac;
 }
 /* --------------------- Body css --------------------- */
 body {
@@ -35,8 +36,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .navbar a {
+	color: var(--unselected) !important;
+	cursor: pointer;
+}
+.navbar .active {
 	color: var(--secondary) !important;
 }
+
 .navbar a:hover {
 	color: var(--secondary-hover) !important;
 }

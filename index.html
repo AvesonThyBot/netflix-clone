@@ -23,16 +23,16 @@
 					<!-- navbar list -->
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+							<a class="nav-link navbar-sections active" aria-current="page">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/pages/series.html">Series</a>
+							<a class="nav-link navbar-sections">Series</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/pages/films.html">Films</a>
+							<a class="nav-link navbar-sections">Films</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/pages/my_list.html">My List</a>
+							<a class="nav-link navbar-sections">My List</a>
 						</li>
 					</ul>
 					<!-- Search bar -->
@@ -46,9 +46,9 @@
 							<img src="/img/icon.png" alt="profile picture" />
 						</button>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="/account/login.html">Login</a></li>
+							<li><a class="dropdown-item" href="/account.html">Login</a></li>
 							<li><hr class="dropdown-divider" /></li>
-							<li><a class="dropdown-item" href="/account/register.html">Register</a></li>
+							<li><a class="dropdown-item" href="/account.html">Register</a></li>
 						</ul>
 					</li>
 				</div>
@@ -56,7 +56,7 @@
 		</nav>
 
 		<!-- Main netflix display -->
-		<main class="main">
+		<main class="home-section netflix-sections">
 			<!-- Hero -->
 			<div class="px-4 py-5 my-5 text-center">
 				<h2 class="display-5 fw-bold">Centered hero</h2>
@@ -128,6 +128,18 @@
 				</div>
 			</div>
 		</main>
+		<!-- Series section -->
+		<section class="series-section netflix-sections" hidden>
+			<p>1</p>
+		</section>
+		<!-- Film sections -->
+		<section class="films-section netflix-sections" hidden>
+			<p>2</p>
+		</section>
+		<!-- My list section -->
+		<section class="my-list-section netflix-sections" hidden>
+			<p>3</p>
+		</section>
 
 		<!-- Scripts -->
 		<script type="module" src="/scripts/netflix.js"></script>
