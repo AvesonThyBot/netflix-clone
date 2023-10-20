@@ -11,6 +11,41 @@
 	--primary: #000000;
 	--secondary: #ffffff;
 	--accent: #b9090c;
+	--primary-opacity: rgba(0, 0, 0, 0.7);
+	--secondary-hover: #888888;
+}
+
+/* --------------------- Navbar css --------------------- */
+body {
+	color: var(--text);
+	background-color: var(--background);
+}
+/* navbar */
+.navbar {
+	background-color: var(--primary) !important;
+}
+
+.navbar a {
+	color: var(--secondary) !important;
+}
+.navbar a:hover {
+	color: var(--secondary-hover) !important;
+}
+.dropdown-menu {
+	margin-top: 20px !important;
+	color: var(--text) !important;
+	background-color: var(--primary-opacity) !important;
+	border-color: var(--primary) !important;
+}
+.dropdown-menu .show {
+	width: 10px !important;
+}
+
+.dropdown-menu li a:hover {
+	background-color: var(--background) !important;
+}
+.dropdown-divide {
+	border-color: var(--primary) !important;
 }
 
 /* navbar brand image */
