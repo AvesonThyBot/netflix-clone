@@ -20,6 +20,15 @@ body {
 	color: var(--text);
 	background-color: var(--background);
 }
+/* Scrollbar */
+body::-webkit-scrollbar {
+	width: 0.4em;
+}
+body::-webkit-scrollbar-thumb {
+	background-color: var(--accent);
+	border: 1px solid var(--primary);
+	border-radius: 5px;
+}
 /* navbar */
 .navbar {
 	background-color: var(--primary) !important;
@@ -31,21 +40,26 @@ body {
 .navbar a:hover {
 	color: var(--secondary-hover) !important;
 }
+/* Override Bootstrap dropdown styles */
 .dropdown-menu {
 	margin-top: 20px !important;
 	color: var(--text) !important;
 	background-color: var(--primary-opacity) !important;
 	border-color: var(--primary) !important;
 }
-.dropdown-menu .show {
-	width: 10px !important;
+
+.dropdown-menu li a {
+	color: var(--text) !important;
 }
 
 .dropdown-menu li a:hover {
 	background-color: var(--background) !important;
 }
-.dropdown-divide {
-	border-color: var(--primary) !important;
+
+/* Adjust active link color */
+.dropdown-menu li a.active,
+.dropdown-menu li a:focus {
+	background-color: var(--background) !important;
 }
 
 /* navbar brand image */
@@ -60,4 +74,25 @@ body {
 /* dropdown for account */
 .dropdown-toggle img {
 	width: 50px;
+}
+
+/* hero */
+.btn-play {
+	color: var(--primary) !important;
+	background-color: var(--secondary) !important;
+}
+.btn-more-info {
+	color: var(--secondary) !important;
+	background-color: var(--secondary-hover) !important;
+}
+.btn-play svg,
+.btn-more-info svg {
+	margin-bottom: 5px;
+}
+
+.main-display {
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+	margin: 70px;
 }

@@ -18,3 +18,6 @@ function displayData() {
 
 // --------------- Extra attributes ---------------
 document.querySelector(".navbar-brand").setAttribute("draggable", false);
+
+// For search and information
+// https://developer.themoviedb.org/reference/intro/getting-started
