@@ -14,8 +14,7 @@
 	--accent: #b9090c;
 	--secondary-hover: #888888;
 }
-
-/* --------------------- Navbar css --------------------- */
+/* --------------------- Body css --------------------- */
 body {
 	color: var(--text);
 	background-color: var(--background);
@@ -29,6 +28,7 @@ body::-webkit-scrollbar-thumb {
 	border: 1px solid var(--primary);
 	border-radius: 5px;
 }
+/* --------------------- Navbar css --------------------- */
 /* navbar */
 .navbar {
 	background-color: var(--primary) !important;
@@ -75,3 +75,86 @@ body::-webkit-scrollbar-thumb {
 .dropdown-toggle img {
 	width: 50px;
 }
+/* --------------------- Main page css --------------------- */
+
+/* hero */
+.btn-play {
+	color: var(--primary) !important;
+	background-color: var(--secondary) !important;
+}
+.btn-more-info {
+	color: var(--secondary) !important;
+	background-color: var(--secondary-hover) !important;
+}
+.btn-play svg,
+.btn-more-info svg {
+	margin-bottom: 5px;
+}
+.btn-volume {
+	border: 2px solid var(--secondary);
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	padding: 10px;
+	transition: 0.2s ease-in;
+}
+.btn-volume:hover {
+	border: 2px solid var(--secondary);
+	background-color: var(--secondary-hover);
+}
+.btn-volume img {
+	width: 100%;
+}
+
+.main-display {
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+	margin-left: 70px;
+	margin-right: 20px;
+	margin-top: 30px;
+}
+
+.scrollable-div {
+	border: 1px solid white;
+	display: flex;
+	overflow-x: scroll;
+	position: relative;
+	scroll-behavior: smooth;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+.scrollable-div::-webkit-scrollbar {
+	display: none;
+}
+
+/* temp */
+.scrollable-div img {
+	flex: 0 0 auto;
+	margin-right: 10px;
+	border-radius: 5px;
+}
+
+.scroll-button {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 20px;
+	cursor: pointer;
+	background-color: transparent;
+	color: #fff;
+	border: none;
+}
+
+#scrollLeft {
+	left: 10px;
+}
+
+#scrollRight {
+	right: 10px;
+}
+
+/* --------------------- Films css --------------------- */
+/* --------------------- Series css --------------------- */
+/* --------------------- My list css --------------------- */

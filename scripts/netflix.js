@@ -16,6 +16,51 @@ function displayData() {
 
 // displayData();
 
+// --------------- Event listeners ---------------
+
+// btn-volume event listener
+const btnVolume = document.querySelector(".btn-volume");
+btnVolume.onclick = () => {
+	if (btnVolume.children[0].currentSrc == "http://127.0.0.1:5500/img/volume_high.svg") {
+		btnVolume.children[0].src = "http://127.0.0.1:5500/img/volume_mute.svg";
+	} else {
+		btnVolume.children[0].src = "http://127.0.0.1:5500/img/volume_high.svg";
+	}
+};
+
+// Scrolling frame
+document.addEventListener("DOMContentLoaded", function () {
+	const scrollableDiv = document.querySelector(".scrollable-div");
+	const scrollLeftButton = document.createElement("button");
+	const scrollRightButton = document.createElement("button");
+
+	scrollLeftButton.innerHTML = "&lt;";
+	scrollRightButton.innerHTML = "&gt;";
+
+	scrollLeftButton.classList.add("scroll-button");
+	scrollRightButton.classList.add("scroll-button");
+
+	scrollLeftButton.setAttribute("id", "scrollLeft");
+	scrollRightButton.setAttribute("id", "scrollRight");
+
+	scrollableDiv.parentNode.appendChild(scrollLeftButton);
+	scrollableDiv.parentNode.appendChild(scrollRightButton);
+
+	scrollLeftButton.addEventListener("click", function () {
+		scrollableDiv.scrollBy({
+			left: -1000, // Adjust the scroll amount
+			behavior: "smooth",
+		});
+	});
+
+	scrollRightButton.addEventListener("click", function () {
+		scrollableDiv.scrollBy({
+			left: 1000, // Adjust the scroll amount
+			behavior: "smooth",
+		});
+	});
+});
+
 // --------------- Extra attributes ---------------
 document.querySelector(".navbar-brand").setAttribute("draggable", false);
 
