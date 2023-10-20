@@ -75,24 +75,3 @@ body::-webkit-scrollbar-thumb {
 .dropdown-toggle img {
 	width: 50px;
 }
-
-/* hero */
-.btn-play {
-	color: var(--primary) !important;
-	background-color: var(--secondary) !important;
-}
-.btn-more-info {
-	color: var(--secondary) !important;
-	background-color: var(--secondary-hover) !important;
-}
-.btn-play svg,
-.btn-more-info svg {
-	margin-bottom: 5px;
-}
-
-.main-display {
-	display: flex;
-	flex-direction: column;
-	gap: 60px;
-	margin: 70px;
-}
