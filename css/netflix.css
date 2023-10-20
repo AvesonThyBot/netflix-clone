@@ -9,9 +9,9 @@
 	--text: #e6e6e6;
 	--background: #141414;
 	--primary: #000000;
+	--primary-opacity: rgba(0, 0, 0, 0.7);
 	--secondary: #ffffff;
 	--accent: #b9090c;
-	--primary-opacity: rgba(0, 0, 0, 0.7);
 	--secondary-hover: #888888;
 }
 

@@ -17,6 +17,21 @@
 .btn-more-info svg {
 	margin-bottom: 5px;
 }
+.btn-volume {
+	border: 2px solid var(--secondary);
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	padding: 10px;
+	transition: 0.2s ease-in;
+}
+.btn-volume:hover {
+	border: 2px solid var(--secondary);
+	background-color: var(--secondary-hover);
+}
+.btn-volume img {
+	width: 100%;
+}
 
 .main-display {
 	display: flex;
