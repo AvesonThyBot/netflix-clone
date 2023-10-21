@@ -38,6 +38,7 @@ body::-webkit-scrollbar-thumb {
 .navbar a {
 	color: var(--unselected) !important;
 	cursor: pointer;
+	user-select: none;
 }
 .navbar .active {
 	color: var(--secondary) !important;
@@ -102,14 +103,15 @@ body::-webkit-scrollbar-thumb {
 	width: 80px;
 	height: 80px;
 	padding: 10px;
-	transition: 0.2s ease-in;
+	transition: 0.2s ease;
 }
+.btn-volume svg path {
+	fill: var(--secondary);
+}
+
 .btn-volume:hover {
 	border: 2px solid var(--secondary);
 	background-color: var(--secondary-hover);
-}
-.btn-volume img {
-	width: 100%;
 }
 
 .main-display {
