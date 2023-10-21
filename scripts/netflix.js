@@ -2,8 +2,8 @@
 import * as apikey from "./apikey.js";
 
 // --------------- Displaying data ---------------
-let url = "https://watchmode.p.rapidapi.com/list-titles/?types=movie%2Ctv_series&page=5&release_date_start=20010101&release_date_end=20201211";
 let options = apikey.options;
+let url = apikey.url;
 
 // displays the given data
 function displayData() {
@@ -14,7 +14,7 @@ function displayData() {
 		});
 }
 
-// displayData();
+displayData();
 
 // --------------- Event listeners ---------------
 
@@ -94,6 +94,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // --------------- Extra attributes ---------------
 document.querySelector(".navbar-brand").setAttribute("draggable", false);
-
-// For search and information
-// https://developer.themoviedb.org/reference/intro/getting-started
