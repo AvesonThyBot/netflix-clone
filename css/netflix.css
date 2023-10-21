@@ -137,10 +137,7 @@ body::-webkit-scrollbar-thumb {
 	display: none;
 }
 
-/* temp */
-.popular-image-container {
-}
-.scrollable-div img {
+.scrollable-div .popular-container img {
 	flex: 0 0 auto;
 	width: 150px;
 	height: 100px;

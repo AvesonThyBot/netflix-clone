@@ -45,7 +45,7 @@ function displayTopRated() {
 			const popularBox = document.querySelector(".popular-box");
 			popularBox.innerHTML = "";
 			for (let index = 0; index < data.results.length; index++) {
-				popularBox.innerHTML += `<div class="${data.results[index].name.toLowerCase().replace(/ /g, "-")} popularContainer"><img src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${data.results[index].name}"/></div>`;
+				popularBox.innerHTML += `<div class="${data.results[index].name.toLowerCase().replace(/ /g, "-")} popular-container"><img src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${data.results[index].name}"/><span>${data.results[index].name}</span></div>`;
 			}
 			// to display image use this:
 			//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
