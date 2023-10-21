@@ -4,7 +4,7 @@ import * as apikey from "./apikey.js";
 // --------------- Displaying data ---------------
 let options = apikey.options;
 
-// displays the given data
+// displays the movies
 function displayMovies() {
 	fetch("https://api.themoviedb.org/3/discover/movie", options)
 		.then((data) => data.json())
@@ -12,8 +12,19 @@ function displayMovies() {
 			console.log(data);
 		});
 }
+// display top rated
+function displayTopRated() {
+	fetch("https://api.themoviedb.org/3/tv/top_rated", options)
+		.then((data) => data.json())
+		.then((data) => {
+			console.log(data);
+			// to display image use this:
+			//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
+		});
+}
 
 displayMovies();
+displayTopRated();
 
 // --------------- Event listeners ---------------
 
