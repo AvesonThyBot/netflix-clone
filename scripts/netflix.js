@@ -26,17 +26,17 @@ const genreObject = {
 	37: "Western",
 };
 
-// --------------- Displaying data ---------------
+// --------------- Main display ---------------
 
-// displays the movies
-function displayMovies() {
+// console log data
+function logData() {
 	fetch("https://api.themoviedb.org/3/watch/providers/movie", options)
 		.then((data) => data.json())
 		.then((data) => {
 			console.log(data);
 		});
 }
-// display top rated movies/series (on netflix)
+// display top rated movies/series
 function displayTopRated() {
 	fetch("https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_networks=213", options)
 		.then((data) => data.json())
@@ -47,12 +47,10 @@ function displayTopRated() {
 			for (let index = 0; index < data.results.length; index++) {
 				popularBox.innerHTML += `<div class="${data.results[index].name.toLowerCase().replace(/ /g, "-")} popular-container"><img src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${data.results[index].name}"/><span>${data.results[index].name}</span></div>`;
 			}
-			// to display image use this:
-			//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
 		});
 }
-// display top rated series
-function displayTopRatedSeries() {
+// display currently trending moves/series
+function displayTrending() {
 	fetch("https://api.themoviedb.org/3/network/213", options)
 		.then((data) => data.json())
 		.then((data) => {
@@ -62,9 +60,12 @@ function displayTopRatedSeries() {
 		});
 }
 
-// displayMovies();
+// logData();
 displayTopRated();
-// displayTopRatedSeries();
+// displayTrending();
+
+// to display image use this:
+//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
 
 // --------------- Event listeners ---------------
 // display sections event listener
@@ -111,20 +112,8 @@ btnVolume.onclick = () => {
 // Scrolling frame
 document.addEventListener("DOMContentLoaded", function () {
 	const scrollableDiv = document.querySelector(".scrollable-div");
-	const scrollLeftButton = document.createElement("button");
-	const scrollRightButton = document.createElement("button");
-
-	scrollLeftButton.innerHTML = "&lt;";
-	scrollRightButton.innerHTML = "&gt;";
-
-	scrollLeftButton.classList.add("scroll-button");
-	scrollRightButton.classList.add("scroll-button");
-
-	scrollLeftButton.setAttribute("id", "scrollLeft");
-	scrollRightButton.setAttribute("id", "scrollRight");
-
-	scrollableDiv.parentNode.appendChild(scrollLeftButton);
-	scrollableDiv.parentNode.appendChild(scrollRightButton);
+	const scrollLeftButton = document.querySelector(".scrollLeft");
+	const scrollRightButton = document.querySelector(".scrollRight");
 
 	scrollLeftButton.addEventListener("click", function () {
 		scrollableDiv.scrollBy({
