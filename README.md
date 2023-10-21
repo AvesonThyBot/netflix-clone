@@ -11,3 +11,5 @@ Netflix clone practise
 # API used:
 * Original API used was Watchmode (https://rapidapi.com/meteoric-llc-meteoric-llc-default/api/watchmode/)
 * current API being used is TMBD (https://developer.themoviedb.org/docs)
+
+## DISCLAIMER: NO DATA FROM THIS WEBSITE IS GOING TO BE 100% CORRECT.
