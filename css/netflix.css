@@ -138,8 +138,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* temp */
+.popular-image-container {
+}
 .scrollable-div img {
 	flex: 0 0 auto;
+	width: 150px;
+	height: 100px;
 	margin-right: 10px;
 	border-radius: 5px;
 }
