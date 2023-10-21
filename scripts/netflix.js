@@ -45,7 +45,7 @@ function displayTopRated() {
 			const popularBox = document.querySelector(".popular-box");
 			popularBox.innerHTML = "";
 			for (let index = 0; index < data.results.length; index++) {
-				popularBox.innerHTML += `<div class="${data.results[index].name.toLowerCase().replace(/ /g, "-")} popular-container"><img src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${data.results[index].name}"/><span>${data.results[index].name}</span></div>`;
+				popularBox.innerHTML += `<div class="${data.results[index].name.toLowerCase().replace(/ /g, "-")} popular-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${data.results[index].name}"/><span>${data.results[index].name}</span></div>`;
 			}
 		});
 }
@@ -132,6 +132,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // --------------- Extra attributes ---------------
 document.querySelector(".navbar-brand").setAttribute("draggable", false);
-
 // https://developer.themoviedb.org/reference/intro/getting-started
 // 213 (network id for netflix)
