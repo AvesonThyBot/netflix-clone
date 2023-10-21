@@ -1,20 +1,54 @@
 // --------------- Import api key ---------------
 import * as apikey from "./apikey.js";
+let options = apikey.options;
+
+// --------------- Global variables ---------------
+// genre dictionary based off genre id
+const genreObject = {
+	28: "Action",
+	12: "Adventure",
+	16: "Animation",
+	35: "Comedy",
+	80: "Crime",
+	99: "Documentary",
+	18: "Drama",
+	10751: "Family",
+	14: "Fantasy",
+	36: "History",
+	27: "Horror",
+	10402: "Music",
+	9648: "Mystery",
+	10749: "Romance",
+	878: "Science Fiction",
+	10770: "TV Movie",
+	53: "Thriller",
+	10752: "War",
+	37: "Western",
+};
 
 // --------------- Displaying data ---------------
-let options = apikey.options;
 
 // displays the movies
 function displayMovies() {
-	fetch("https://api.themoviedb.org/3/discover/movie", options)
+	fetch("https://api.themoviedb.org/3/watch/providers/movie", options)
 		.then((data) => data.json())
 		.then((data) => {
 			console.log(data);
 		});
 }
-// display top rated
+// display top rated movies/series (on netflix)
 function displayTopRated() {
-	fetch("https://api.themoviedb.org/3/tv/top_rated", options)
+	fetch("https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_networks=213", options)
+		.then((data) => data.json())
+		.then((data) => {
+			console.log(data);
+			// to display image use this:
+			//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
+		});
+}
+// display top rated series
+function displayTopRatedSeries() {
+	fetch("https://api.themoviedb.org/3/network/213", options)
 		.then((data) => data.json())
 		.then((data) => {
 			console.log(data);
@@ -23,9 +57,9 @@ function displayTopRated() {
 		});
 }
 
-displayMovies();
+// displayMovies();
 displayTopRated();
-
+// displayTopRatedSeries();
 // --------------- Event listeners ---------------
 
 // display sections event listener
@@ -104,3 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // --------------- Extra attributes ---------------
 document.querySelector(".navbar-brand").setAttribute("draggable", false);
+
+// https://developer.themoviedb.org/reference/intro/getting-started
+// 213 (network id for netflix)
