@@ -3,18 +3,17 @@ import * as apikey from "./apikey.js";
 
 // --------------- Displaying data ---------------
 let options = apikey.options;
-let url = apikey.url;
 
 // displays the given data
-function displayData() {
-	fetch(url, options)
+function displayMovies() {
+	fetch("https://api.themoviedb.org/3/discover/movie", options)
 		.then((data) => data.json())
 		.then((data) => {
 			console.log(data);
 		});
 }
 
-displayData();
+displayMovies();
 
 // --------------- Event listeners ---------------
 
