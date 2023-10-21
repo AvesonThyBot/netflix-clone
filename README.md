@@ -8,3 +8,6 @@ Netflix clone practise
 * use var() in css for easier customiseablity
 * learn to use git
 
+# API used:
+* Original API used was Watchmode (https://rapidapi.com/meteoric-llc-meteoric-llc-default/api/watchmode/)
+* current API being used is TMBD (https://developer.themoviedb.org/docs)
