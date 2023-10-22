@@ -115,21 +115,22 @@ document.addEventListener("DOMContentLoaded", function () {
 	const scrollLeftButton = document.querySelector(".scrollLeft");
 	const scrollRightButton = document.querySelector(".scrollRight");
 
+	// Add click event listeners
 	scrollLeftButton.addEventListener("click", function () {
 		scrollableDiv.scrollBy({
-			left: -1000, // Adjust the scroll amount
+			left: -scrollableDiv.clientWidth, // scroll by one view
 			behavior: "smooth",
 		});
 	});
 
 	scrollRightButton.addEventListener("click", function () {
+		// check arrows again
 		scrollableDiv.scrollBy({
-			left: 1000, // Adjust the scroll amount
+			left: scrollableDiv.clientWidth, // scroll by one view
 			behavior: "smooth",
 		});
 	});
 });
-
 // --------------- Extra attributes ---------------
 document.querySelector(".navbar-brand").setAttribute("draggable", false);
 // https://developer.themoviedb.org/reference/intro/getting-started
