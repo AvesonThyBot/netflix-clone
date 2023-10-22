@@ -35,15 +35,33 @@ function logData() {
 			console.log(data);
 		});
 }
-logData();
+// logData();
 // ------- Main display -------
 function displayMain() {
+	// function to check if its name or title
+	function title(data_name, type) {
+		if (type == 1) {
+			if (data_name.name == undefined) {
+				return data_name.title.toLowerCase().replace(/ /g, "-");
+			} else if (data_name.title == undefined) {
+				return data_name.name.toLowerCase().replace(/ /g, "-");
+			}
+		} else {
+			if (data_name.name == undefined) {
+				console.log(data_name.title);
+				return data_name.title;
+			} else if (data_name.title == undefined) {
+				console.log(data_name.name);
+				return data_name.name;
+			}
+		}
+	}
 	// display hero
 	function displayHero() {
 		fetch("https://api.themoviedb.org/3/tv/111110", options)
 			.then((data) => data.json())
 			.then((data) => {
-				console.log(data);
+				// console.log(data);
 				const heroTitle = document.querySelector(".hero-title");
 				const heroDesc = document.querySelector(".hero-desc");
 				const heroVideo = document.querySelector(".hero-video");
@@ -72,33 +90,64 @@ function displayMain() {
 		fetch("https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_networks=213", options)
 			.then((data) => data.json())
 			.then((data) => {
-				console.log(data);
+				// console.log(data);
 				const popularBox = document.querySelector(".popular-box");
 				popularBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					popularBox.innerHTML += `<div class="${data.results[index].name.toLowerCase().replace(/ /g, "-")} popular-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${data.results[index].name}"/><span>${data.results[index].name}</span></div>`;
+					popularBox.innerHTML += `<div class="${title(data.results[index], 1)} popular-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 			});
 	}
-	// display currently trending moves/series
+	// display trending movies/series
 	function displayTrending() {
-		fetch("https://api.themoviedb.org/3/network/213", options)
+		fetch("https://api.themoviedb.org/3/trending/all/day?language=en-US", options)
 			.then((data) => data.json())
 			.then((data) => {
 				console.log(data);
+				const trendingBox = document.querySelector(".trending-box");
+				trendingBox.textContent = "";
+				for (let index = 0; index < data.results.length; index++) {
+					trendingBox.innerHTML += `<div class="${title(data.results[index], 1)} popular-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+				}
+			});
+	}
+	// display tv series
+	function displaySeries() {
+		fetch("https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=vote_count.desc&with_networks=213", options)
+			.then((data) => data.json())
+			.then((data) => {
+				// console.log(data);
+				const tvBox = document.querySelector(".tv-box");
+				tvBox.textContent = "";
+				for (let index = 0; index < data.results.length; index++) {
+					tvBox.innerHTML += `<div class="${title(data.results[index], 1)} popular-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+				}
+				// to display image use this:
+				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
+			});
+	}
+	// display movies
+	function displayMovies() {
+		fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_count.desc", options)
+			.then((data) => data.json())
+			.then((data) => {
+				// console.log(data);
+				const filmBox = document.querySelector(".films-box");
+				filmBox.textContent = "";
+				for (let index = 0; index < data.results.length; index++) {
+					filmBox.innerHTML += `<div class="${title(data.results[index], 1)} popular-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+				}
 				// to display image use this:
 				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
 			});
 	}
 	displayHero();
 	displayTopRated();
-	// displayTrending();
+	displayTrending();
+	displayMovies();
+	displaySeries();
 }
 displayMain();
-// logData();
-
-// to display image use this:
-//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
 
 // --------------- Event listeners ---------------
 // display sections event listener
@@ -172,3 +221,5 @@ document.addEventListener("DOMContentLoaded", function () {
 document.querySelector(".navbar-brand").setAttribute("draggable", false);
 // https://developer.themoviedb.org/reference/intro/getting-started
 // 213 (network id for netflix)
+// to display image use this:
+//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
