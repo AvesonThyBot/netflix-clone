@@ -53,26 +53,17 @@ function displayMain() {
 				heroDesc.textContent = data.overview;
 				// display video
 				heroVideo.src = "/img/one_piece.mp4";
+				heroVideo.controls = false;
 				heroVideo.muted = true;
 				heroVideo.volume = 0.4;
-				let playPromise = heroVideo.play();
-
-				if (playPromise !== undefined) {
-					playPromise
-						.then(() => {
-							// Video started playing successfully
-							setTimeout(function () {
-								// Stop the video at 167 seconds
-								heroVideo.currentTime = 168;
-								// Pause the video
-								heroVideo.pause();
-							}, 168000);
-						})
-						.catch((error) => {
-							// Handle autoplay restrictions
-							console.error("Autoplay failed:", error);
-						});
-				}
+				// turns into banner after 168 seconds
+				setTimeout(function () {
+					// Stop the video at 168 seconds
+					heroVideo.currentTime = 169;
+					// Pause the video
+					heroVideo.pause();
+					document.querySelector(".hero-video-container").innerHTML = `<img src="https://image.tmdb.org/t/p/original${data.poster_path}" alt="${data.name} banner"/>`;
+				}, 168500);
 			});
 	}
 
