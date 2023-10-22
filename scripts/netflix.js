@@ -55,21 +55,24 @@ function displayMain() {
 				heroVideo.src = "/img/one_piece.mp4";
 				heroVideo.muted = true;
 				heroVideo.volume = 0.4;
-				heroVideo
-					.play()
-					.then(() => {
-						// Video started playing successfully
-						setTimeout(function () {
-							// Stop the video at 167 seconds
-							heroVideo.currentTime = 168;
-							// Pause the video
-							heroVideo.pause();
-						}, 168000);
-					})
-					.catch((error) => {
-						// Handle autoplay restrictions
-						console.error("Autoplay failed:", error);
-					});
+				let playPromise = heroVideo.play();
+
+				if (playPromise !== undefined) {
+					playPromise
+						.then(() => {
+							// Video started playing successfully
+							setTimeout(function () {
+								// Stop the video at 167 seconds
+								heroVideo.currentTime = 168;
+								// Pause the video
+								heroVideo.pause();
+							}, 168000);
+						})
+						.catch((error) => {
+							// Handle autoplay restrictions
+							console.error("Autoplay failed:", error);
+						});
+				}
 			});
 	}
 
