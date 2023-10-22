@@ -54,7 +54,21 @@ function displayMain() {
 				// display video
 				heroVideo.src = "/img/one_piece.mp4";
 				heroVideo.volume = 0.4;
-				heroVideo.autoplay = true;
+				heroVideo
+					.play()
+					.then(() => {
+						// Video started playing successfully
+						setTimeout(function () {
+							// Stop the video at 167 seconds
+							heroVideo.currentTime = 168;
+							// Pause the video
+							heroVideo.pause();
+						}, 168000);
+					})
+					.catch((error) => {
+						// Handle autoplay restrictions
+						console.error("Autoplay failed:", error);
+					});
 			});
 	}
 
