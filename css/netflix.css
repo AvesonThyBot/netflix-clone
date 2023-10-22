@@ -189,6 +189,20 @@ br {
 }
 .popular-container {
 	text-align: center;
+	margin: 10px 0;
+}
+.popular-container span {
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.popular-container:first-child {
+	margin-left: 10px;
+}
+.popular-container:nth-last-child() {
+	margin-right: 10px;
 }
 
 .scroll-button {
