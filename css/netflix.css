@@ -114,17 +114,39 @@ body::-webkit-scrollbar-thumb {
 	border: 2px solid var(--secondary);
 	background-color: var(--secondary-hover);
 }
-.hero-video {
-	width: 100%;
+br {
+	user-select: none;
 }
+
+.hero-video-container {
+	position: absolute;
+	top: 82px;
+	width: 100%;
+	height: 55vh;
+	overflow: hidden;
+}
+.hero-video {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -1;
+}
+
+.content-container {
+	position: relative;
+	z-index: 1;
+}
+
 /* main display */
+
 .main-display {
 	display: flex;
 	flex-direction: column;
 	gap: 60px;
 	margin-left: 70px;
 	margin-right: 20px;
-	margin-top: 30px;
+	margin-top: 70px;
 }
 .popular {
 	position: relative;
