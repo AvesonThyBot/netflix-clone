@@ -46,9 +46,9 @@
 							<img src="/img/icon.png" alt="profile picture" />
 						</button>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="/account.html">Login</a></li>
+							<li><a class="dropdown-item" href="/account.php">Login</a></li>
 							<li><hr class="dropdown-divider" /></li>
-							<li><a class="dropdown-item" href="/account.html">Register</a></li>
+							<li><a class="dropdown-item" href="/account.php">Register</a></li>
 						</ul>
 					</li>
 				</div>
@@ -160,7 +160,6 @@
 		<section class="my-list-section netflix-sections" hidden>
 			<p>my list</p>
 		</section>
-
 		<!-- Scripts -->
 		<script type="module" src="/scripts/netflix.js"></script>
 		<!-- Popper js -->
