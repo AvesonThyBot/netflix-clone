@@ -48,10 +48,8 @@ function displayMain() {
 			}
 		} else {
 			if (data_name.name == undefined) {
-				console.log(data_name.title);
 				return data_name.title;
 			} else if (data_name.title == undefined) {
-				console.log(data_name.name);
 				return data_name.name;
 			}
 		}
@@ -103,7 +101,6 @@ function displayMain() {
 		fetch("https://api.themoviedb.org/3/trending/all/day?language=en-US", options)
 			.then((data) => data.json())
 			.then((data) => {
-				console.log(data);
 				const trendingBox = document.querySelector(".trending-box");
 				trendingBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {

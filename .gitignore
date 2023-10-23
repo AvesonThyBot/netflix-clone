@@ -1,3 +1,4 @@
 apikey.js
-api/*
-users.json
+# hide the html files, same code is in php.
+index.html
+account.html

@@ -1,3 +1,6 @@
+<?php
+ob_end_flush(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -23,10 +26,10 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" href="/account/login.html">Login</a>
+							<a class="nav-link navbar-sections">Login</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/account/register.html">Register</a>
+							<a class="nav-link navbar-sections active">Register</a>
 						</li>
 					</ul>
 				</div>
@@ -35,7 +38,6 @@
 
 		<!-- Scripts -->
 		<script type="module" src="/scripts/account.js"></script>
-		<script type="module" src="/scripts/netflix.js"></script>
 		<!-- Popper js -->
 		<script src="https://unpkg.com/@popperjs/core@2"></script>
 		<script>
