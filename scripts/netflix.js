@@ -171,7 +171,15 @@ document.addEventListener("DOMContentLoaded", function () {
 			selectedSection = `${selectedSection.toLowerCase().replace(/\s+/g, "-")}-section`;
 			selectedSection = document.querySelector(`.${selectedSection}`);
 			// unhide the picked section
-			selectedSection.removeAttribute("hidden", "hidden");
+			selectedSection.removeAttribute("hidden");
+			if (selectedSection !== "home-section" && document.querySelector(".hero-video-container").firstElementChild.tagName.toLowerCase() == "video") {
+				document.querySelector(".hero-video").muted = true;
+				console.log(selectedSection == "home-section" && document.querySelector(".hero-video-container").firstElementChild.tagName.toLowerCase() == "video");
+				console.log(selectedSection);
+			} else if (selectedSection == "home-section" && document.querySelector(".hero-video-container").firstElementChild.tagName.toLowerCase() == "video") {
+				document.querySelector(".hero-video").muted = false;
+				console.log("unmuted");
+			}
 		});
 	});
 });

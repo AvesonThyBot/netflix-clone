@@ -1,4 +1,3 @@
-console.log("hi");
 // --------------- Event listeners ---------------
 // display sections event listener
 document.addEventListener("DOMContentLoaded", function () {
@@ -14,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 			// add active
 			section.classList.add("active");
-			// display correct secion
-			const netflixSection = document.querySelectorAll(".netflix-sections");
+			// display correct section
+			const netflixSection = document.querySelectorAll(".account-sections");
 			// hide all previous netflix sections
 			netflixSection.forEach((section) => {
 				section.setAttribute("hidden", "hidden");

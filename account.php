@@ -35,7 +35,14 @@ ob_end_flush();
 				</div>
 			</div>
 		</nav>
-
+		<!-- Login section -->
+		<section class="login-section account-sections" hidden>
+			<p>Login section</p>
+		</section>
+		<!-- Register sections -->
+		<section class="register-section account-sections" hidden>
+			<p>Register sections</p>
+		</section>
 		<!-- Scripts -->
 		<script type="module" src="/scripts/account.js"></script>
 		<!-- Popper js -->
