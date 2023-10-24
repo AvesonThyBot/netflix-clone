@@ -49,9 +49,9 @@ ob_end_flush();
 							<img src="/img/icon.png" alt="profile picture" />
 						</button>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="/account.php">Login</a></li>
+							<li><a class="dropdown-item" href="/account.php?type=login">Login</a></li>
 							<li><hr class="dropdown-divider" /></li>
-							<li><a class="dropdown-item" href="/account.php">Register</a></li>
+							<li><a class="dropdown-item" href="/account.php?type=register">Register</a></li>
 						</ul>
 					</li>
 				</div>

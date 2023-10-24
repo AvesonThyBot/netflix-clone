@@ -1,11 +1,38 @@
 // --------------- Event listeners ---------------
+// display correct section based query string
+document.addEventListener("DOMContentLoaded", function () {
+	let webUrl = window.location.search;
+	webUrl = new URLSearchParams(webUrl);
+	webUrl = webUrl.get("type");
+	if (webUrl == "login" || webUrl == "register") {
+		const sectionType = `${webUrl.toLowerCase()}-section`;
+		const selectedSection = document.querySelector(`.${sectionType}`);
+		selectedSection.removeAttribute("hidden", "hidden");
+		const sections = document.querySelectorAll(".navbar-sections");
+		// remove active
+		sections.forEach((section) => {
+			section.classList.remove("active");
+		});
+		// add active
+		document.querySelector(`.${webUrl}-section`).classList.add("active");
+	} else {
+		document.querySelector(".login-section").removeAttribute("hidden");
+		const sections = document.querySelectorAll(".navbar-sections");
+		// remove active
+		sections.forEach((section) => {
+			section.classList.remove("active");
+		});
+		// add active
+		document.querySelector(".navbar-sections").classList.add("active");
+	}
+});
+
 // display sections event listener
 document.addEventListener("DOMContentLoaded", function () {
 	const sections = document.querySelectorAll(".navbar-sections");
 	sections.forEach((section) => {
 		section.addEventListener("click", function () {
 			// change title of web
-			console.log(section.textContent);
 			document.title = `${section.textContent} - Netflix`;
 			// remove active
 			sections.forEach((section) => {
