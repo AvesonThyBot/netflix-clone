@@ -4,22 +4,30 @@ require "config/database.php";
 // signout
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
-	if ($action == "logout"){
-		// assign cookie id
-		if (isset($_COOKIE['user_id'])) {
-			$id = $_COOKIE['user_id'];
-			$sql = "SELECT * FROM account WHERE user_id = '$id'";
-			$result = mysqli_query($conn, $sql);
-			while ($row = mysqli_fetch_assoc($result)) {
-				$email = $row["email"];
-				setcookie('email', $email, time() - 86400); // 1 day, email
-				setcookie('user_id', $id, time() - 86400); // 1 day, email
-				setcookie('is_logged_in', true, time() - 86400); // 1 day, logged in	
-			}
-		}
-
-	}	
+    if ($action == "logout") {
+        // assign cookie id
+        if (isset($_COOKIE['user_id'])) {
+            $id = $_COOKIE['user_id'];
+            $sql = "SELECT * FROM account WHERE user_id = '$id'";
+            $result = mysqli_query($conn, $sql);
+            
+            // Check if the query was successful
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $email = $row["email"];
+                    setcookie('email', $email, time() - 86400); // 1 day, email
+                    setcookie('user_id', $id, time() - 86400); // 1 day, user_id
+                    setcookie('is_logged_in', true, time() - 86400); // 1 day, logged in
+                }
+                // Redirect after setting cookies
+                header("Location: index.php");
+            } else {
+                echo "Error executing the SQL query: " . mysqli_error($conn);
+            }
+        }
+    }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
