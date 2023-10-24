@@ -5,26 +5,28 @@ document.addEventListener("DOMContentLoaded", function () {
 	webUrl = new URLSearchParams(webUrl);
 	webUrl = webUrl.get("type");
 	if (webUrl == "login" || webUrl == "register") {
+		console.log(webUrl, "if");
 		const sectionType = `${webUrl.toLowerCase()}-section`;
 		const selectedSection = document.querySelector(`.${sectionType}`);
 		selectedSection.removeAttribute("hidden", "hidden");
-		const sections = document.querySelectorAll(".navbar-sections");
+		const navbarSections = document.querySelectorAll(".navbar-sections");
 		// remove active
-		sections.forEach((section) => {
+		navbarSections.forEach((section) => {
 			section.classList.remove("active");
 		});
 		// add activeg
-		document.querySelector(`.${webUrl}-section`).classList.add("active");
-		switch (weburl) {
+		document.querySelector(`.navbar-${webUrl}`).classList.add("active");
+		selectedSection.classList.add("active");
+		switch (webUrl) {
 			case "login":
 				document.title = "Login - Netflix";
 				break;
-
 			case "register":
 				document.title = "Register - Netflix";
 				break;
 		}
 	} else {
+		console.log("hi");
 		document.querySelector(".login-section").removeAttribute("hidden");
 		const sections = document.querySelectorAll(".navbar-sections");
 		// remove active
@@ -32,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			section.classList.remove("active");
 		});
 		// add active
-		document.querySelector(".navbar-sections").classList.add("active");
+		document.querySelector(".navbar-login").classList.add("active");
+		document.title = "Login - Netflix";
 	}
 });
 
