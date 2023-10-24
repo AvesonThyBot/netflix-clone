@@ -17,11 +17,11 @@ if (isset($_POST['btnLogin'])) {
     while ($row = mysqli_fetch_assoc($result)) {
 
         $passHash = $row['password_text'];
+		$id = $row['user_id'];
         if (password_verify($pass, $passHash)) {
-
             setcookie('email', $email, time() + (86400 * 30), "/"); // 1 day, email
+            setcookie('user_id', $id, time() + (86400 * 30), "/"); // 1 day, email
             setcookie('is_logged_in', true, time() + (86400 * 30), "/"); // 1 day, logged in
-
             header("Location:index.php");
         } else {
             echo "Incorrect Password";

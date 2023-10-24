@@ -3,7 +3,6 @@
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 	if ($action == "logout"){
-		$email = 
 			setcookie('email', $email, time() - 86400); // 1 day, email
 			setcookie('is_logged_in', true, time() - 86400); // 1 day, logged in
 	}	
@@ -60,7 +59,7 @@ if (isset($_GET['action'])) {
 						<?php if (isset($_COOKIE["is_logged_in"])) { ?>
 							<li><a class="dropdown-item" href="/profile.php">Profile</a></li>
 							<li><hr class="dropdown-divider" /></li>
-							<li><a class="dropdown-item" href="?action=logout" name="logout">Log out</a></li>
+							<li><a class="dropdown-item" href="?action=logout">Log out</a></li>
 						<?php } else { ?>
 							<li><a class="dropdown-item" href="/account.php?type=login">Login</a></li>
 							<li><hr class="dropdown-divider" /></li>
