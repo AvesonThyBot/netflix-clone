@@ -1,10 +1,23 @@
 <?php
+require "config/database.php";
+
 // signout
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 	if ($action == "logout"){
-			setcookie('email', $email, time() - 86400); // 1 day, email
-			setcookie('is_logged_in', true, time() - 86400); // 1 day, logged in
+		// assign cookie id
+		if (isset($_COOKIE['user_id'])) {
+			$id = $_COOKIE['user_id'];
+			$sql = "SELECT * FROM account WHERE user_id = '$id'";
+			$result = mysqli_query($conn, $sql);
+			while ($row = mysqli_fetch_assoc($result)) {
+				$email = $row["email"];
+				setcookie('email', $email, time() - 86400); // 1 day, email
+				setcookie('user_id', $id, time() - 86400); // 1 day, email
+				setcookie('is_logged_in', true, time() - 86400); // 1 day, logged in	
+			}
+		}
+
 	}	
 }
 ?>
