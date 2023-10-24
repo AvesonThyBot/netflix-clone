@@ -1,5 +1,7 @@
 <?php
-ob_end_flush(); 
+if (count($_COOKIE) > 0) {
+    header("Location:index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +28,7 @@ ob_end_flush();
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link navbar-sections navbar-login">Login</a>
+							<a class="nav-link navbar-sections navbar-login ">Login</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link navbar-sections navbar-register">Register</a>
@@ -37,11 +39,46 @@ ob_end_flush();
 		</nav>
 		<!-- Login section -->
 		<section class="login-section account-sections" hidden>
-			<p>Login section</p>
+			<!-- form for login -->
+			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">Email Address</span>
+					<input type="email" class="form-control" placeholder="Email address" aria-label="emailAddress" aria-describedby="basic-addon1" name="txtEmailAddress" required />
+				</div>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">Password</span>
+					<input type="password" class="form-control" placeholder="Password" aria-label="password" aria-describedby="basic-addon1" name="txtPassword" required />
+				</div>
+				<!-- Submit button -->
+				<div>
+					<input type="submit" class="btn btn-primary" value="Login" name="btnLogin" />
+				</div>
+			</form>
 		</section>
 		<!-- Register sections -->
 		<section class="register-section account-sections" hidden>
-			<p>Register sections</p>
+			<!-- Form for register -->
+			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">First Name</span>
+					<input type="text" class="form-control" placeholder="First name" aria-label="firstName" aria-describedby="basic-addon1" name="txtFirstName" required />
+				</div>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">Last Name</span>
+					<input type="text" class="form-control" placeholder="Last name" aria-label="lastName" aria-describedby="basic-addon1" name="txtLastName" required />
+				</div>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">Email Address</span>
+					<input type="email" class="form-control" placeholder="Email address" aria-label="emailAddress" aria-describedby="basic-addon1" name="txtEmailAddress" required />
+				</div>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">Password</span>
+					<input type="password" class="form-control" placeholder="Password" aria-label="password" aria-describedby="basic-addon1" name="txtPassword" required />
+				</div>
+				<div>
+					<input type="submit" class="btn btn-primary" value="Register" name="btnRegister" />
+				</div>
+			</form>
 		</section>
 		<!-- Scripts -->
 		<script type="module" src="/scripts/account.js"></script>
