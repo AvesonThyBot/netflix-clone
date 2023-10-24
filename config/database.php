@@ -11,7 +11,4 @@
     catch (Exception $ex){
         echo "connection failed", $ex;
     }
-    
-    
-    
 ?>

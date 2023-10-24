@@ -1,7 +1,46 @@
 <?php
+// Redirect out if they are logged in
 if (count($_COOKIE) > 0) {
     header("Location:index.php");
 }
+//  Data base require
+require "config/database.php";
+
+// Login
+if (isset($_POST['btnLogin'])) {
+    $email = $_POST['txtEmailAddress'];
+    $pass = $_POST['txtPassword'];
+    $sql = "SELECT * FROM account WHERE email = '$email'";
+
+    $result = mysqli_query($conn, $sql);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+
+        $passHash = $row['password_text'];
+        if (password_verify($pass, $passHash)) {
+
+            setcookie('email', $email, time() + (86400 * 30), "/"); // 1 day, email
+            setcookie('is_logged_in', true, time() + (86400 * 30), "/"); // 1 day, logged in
+
+            header("Location:index.php");
+        } else {
+            echo "Incorrect Password";
+        }
+    }
+}
+// Register
+if (isset($_POST['btnRegister'])) {
+    $first_name = $_POST["txtFirstName"];
+    $last_name = $_POST["txtLastName"];
+    $email = $_POST["txtEmailAddress"];
+    $password = password_hash($_POST["txtPassword"], CRYPT_BLOWFISH);
+
+    $sql = "INSERT INTO account (first_name, second_name, email, password_text) VALUES ('$first_name', '$last_name', '$email', '$password')";
+    $result = mysqli_query($conn, $sql);
+    header("Location:account.php?type='login'");
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
