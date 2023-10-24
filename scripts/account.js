@@ -13,8 +13,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		sections.forEach((section) => {
 			section.classList.remove("active");
 		});
-		// add active
+		// add activeg
 		document.querySelector(`.${webUrl}-section`).classList.add("active");
+		switch (weburl) {
+			case "login":
+				document.title = "Login - Netflix";
+				break;
+
+			case "register":
+				document.title = "Register - Netflix";
+				break;
+		}
 	} else {
 		document.querySelector(".login-section").removeAttribute("hidden");
 		const sections = document.querySelectorAll(".navbar-sections");
