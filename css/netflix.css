@@ -123,7 +123,6 @@ br {
 	top: 82px;
 	width: 100%;
 	height: 55vh;
-	overflow: hidden;
 }
 .hero-video-container img {
 	position: absolute;
@@ -137,13 +136,13 @@ br {
 	height: 100%;
 	object-fit: cover;
 	z-index: -1;
+	overflow: hidden;
 }
 
 .content-container {
 	position: relative;
 	z-index: 1;
 }
-
 /* main display */
 
 .main-display {
@@ -203,6 +202,10 @@ br {
 }
 .popular-container:nth-last-child() {
 	margin-right: 10px;
+}
+
+.films {
+	margin-bottom: 20px;
 }
 
 .scroll-button {
