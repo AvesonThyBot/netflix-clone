@@ -197,7 +197,7 @@ btnVolume.onclick = () => {
 	}
 };
 
-// Scrolling frame
+// Scrolling frame for each section
 document.addEventListener("DOMContentLoaded", function () {
 	const scrollableDiv = document.querySelector(".scrollable-div");
 	const scrollLeftButton = document.querySelector(".scrollLeft");
