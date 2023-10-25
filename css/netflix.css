@@ -149,7 +149,7 @@ br {
 	display: flex;
 	flex-direction: column;
 	gap: 60px;
-	margin-left: 70px;
+	margin-left: 20px;
 	margin-right: 20px;
 	margin-top: 70px;
 }
@@ -164,7 +164,6 @@ br {
 }
 
 .scrollable-div {
-	border: 1px solid white;
 	display: flex;
 	overflow-x: scroll;
 	position: relative;
@@ -178,29 +177,29 @@ br {
 	display: none;
 }
 
-.popular-container img {
+.box-container img {
 	flex: 0 0 auto;
-	width: 150px;
-	height: 100px;
+	width: 200px;
+	height: 125px;
 	margin-right: 10px;
 	border-radius: 5px;
 	cursor: pointer;
 }
-.popular-container {
+.box-container {
 	text-align: center;
-	margin: 10px 0;
+	margin: 10px 9.5px;
 }
-.popular-container span {
+.box-container span {
 	display: -webkit-box;
 	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
 
-.popular-container:first-child {
+.box-container:first-child {
 	margin-left: 10px;
 }
-.popular-container:nth-last-child() {
+.box-container:nth-last-child() {
 	margin-right: 10px;
 }
 

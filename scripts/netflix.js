@@ -92,7 +92,7 @@ function displayMain() {
 				const popularBox = document.querySelector(".popular-box");
 				popularBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					popularBox.innerHTML += `<div class="${title(data.results[index], 1)} popular-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					popularBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 			});
 	}
@@ -104,7 +104,7 @@ function displayMain() {
 				const trendingBox = document.querySelector(".trending-box");
 				trendingBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					trendingBox.innerHTML += `<div class="${title(data.results[index], 1)} popular-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					trendingBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 			});
 	}
@@ -117,7 +117,7 @@ function displayMain() {
 				const tvBox = document.querySelector(".tv-box");
 				tvBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					tvBox.innerHTML += `<div class="${title(data.results[index], 1)} popular-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					tvBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 				// to display image use this:
 				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
@@ -132,7 +132,7 @@ function displayMain() {
 				const filmBox = document.querySelector(".films-box");
 				filmBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					filmBox.innerHTML += `<div class="${title(data.results[index], 1)} popular-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					filmBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 				// to display image use this:
 				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
