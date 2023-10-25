@@ -207,10 +207,9 @@ document.addEventListener("DOMContentLoaded", function () {
 			// assign clicked div
 			const selectedScrollableDiv = scrollBox.parentElement.children[1];
 			const scrollableDiv = document.querySelector(`.${selectedScrollableDiv.classList[1]}`); //picks the 2nd class, aka box class name
-			const scrollLeftButton = selectedScrollableDiv.querySelector(".scrollLeft");
-			const scrollRightButton = selectedScrollableDiv.querySelector(".scrollRight");
+			const scrollLeftButton = selectedScrollableDiv.parentElement.querySelector(".scrollLeft");
+			const scrollRightButton = selectedScrollableDiv.parentElement.querySelector(".scrollRight");
 
-			console.log(scrollLeftButton, scrollRightButton, selectedScrollableDiv);
 			// Add click event listeners
 			scrollLeftButton.addEventListener("click", function () {
 				scrollableDiv.scrollBy({
