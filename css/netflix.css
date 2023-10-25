@@ -9,7 +9,7 @@
 	--text: #e6e6e6;
 	--background: #141414;
 	--primary: #000000;
-	--primary-opacity: rgba(0, 0, 0, 0.7);
+	--primary-hover: rgba(0, 0, 0, 0.7);
 	--secondary: #ffffff;
 	--accent: #b9090c;
 	--secondary-hover: #888888;
@@ -51,7 +51,7 @@ body::-webkit-scrollbar-thumb {
 .dropdown-menu {
 	margin-top: 20px !important;
 	color: var(--text) !important;
-	background-color: var(--primary-opacity) !important;
+	background-color: var(--primary-hover) !important;
 	border-color: var(--primary) !important;
 }
 
@@ -238,7 +238,25 @@ br {
 .scrollRight {
 	right: 0;
 }
-
+/* search */
+.search-btn {
+	border-color: var(--accent);
+	color: var(--secondary);
+}
+.search-btn:hover {
+	background-color: var(--accent);
+	color: var(--primary);
+}
+.search-btn:focus {
+	outline: var(--accent);
+}
+.search-bar {
+	border-color: var(--accent);
+}
+.search-bar:focus {
+	box-shadow: none !important;
+	border-color: var(--accent);
+}
 /* --------------------- Films css --------------------- */
 /* --------------------- Series css --------------------- */
 /* --------------------- My list css --------------------- */
