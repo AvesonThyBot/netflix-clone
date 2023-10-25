@@ -208,21 +208,19 @@ document.addEventListener("DOMContentLoaded", function () {
 		const scrollLeftButton = selectedScrollableDiv.parentElement.querySelector(".scrollLeft");
 		const scrollRightButton = selectedScrollableDiv.parentElement.querySelector(".scrollRight");
 		// assign the currently used div
-		scrollBox.onclick = () => {
-			// Add click event listeners
-			scrollLeftButton.onclick = () => {
-				scrollableDiv.scrollBy({
-					left: -scrollableDiv.clientWidth, // scroll by one view
-					behavior: "smooth",
-				});
-			};
-			scrollRightButton.onclick = () => {
-				// check arrows again
-				scrollableDiv.scrollBy({
-					left: scrollableDiv.clientWidth, // scroll by one view
-					behavior: "smooth",
-				});
-			};
+		// Add click event listeners
+		scrollLeftButton.onclick = () => {
+			scrollableDiv.scrollBy({
+				left: -scrollableDiv.clientWidth, // scroll by one view
+				behavior: "smooth",
+			});
+		};
+		scrollRightButton.onclick = () => {
+			// check arrows again
+			scrollableDiv.scrollBy({
+				left: scrollableDiv.clientWidth, // scroll by one view
+				behavior: "smooth",
+			});
 		};
 	});
 });
