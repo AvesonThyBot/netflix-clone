@@ -199,24 +199,34 @@ btnVolume.onclick = () => {
 
 // Scrolling frame for each section
 document.addEventListener("DOMContentLoaded", function () {
-	const scrollableDiv = document.querySelector(".scrollable-div");
-	const scrollLeftButton = document.querySelector(".scrollLeft");
-	const scrollRightButton = document.querySelector(".scrollRight");
+	// get all scrollable boxs
+	const scrollableBoxs = document.querySelectorAll(".scroll-button");
+	scrollableBoxs.forEach((scrollBox) => {
+		// assign the currently used div
+		scrollBox.onclick = () => {
+			// assign clicked div
+			const selectedScrollableDiv = scrollBox.parentElement.children[1];
+			const scrollableDiv = document.querySelector(`.${selectedScrollableDiv.classList[1]}`); //picks the 2nd class, aka box class name
+			const scrollLeftButton = selectedScrollableDiv.querySelector(".scrollLeft");
+			const scrollRightButton = selectedScrollableDiv.querySelector(".scrollRight");
 
-	// Add click event listeners
-	scrollLeftButton.addEventListener("click", function () {
-		scrollableDiv.scrollBy({
-			left: -scrollableDiv.clientWidth, // scroll by one view
-			behavior: "smooth",
-		});
-	});
+			console.log(scrollLeftButton, scrollRightButton, selectedScrollableDiv);
+			// Add click event listeners
+			scrollLeftButton.addEventListener("click", function () {
+				scrollableDiv.scrollBy({
+					left: -scrollableDiv.clientWidth, // scroll by one view
+					behavior: "smooth",
+				});
+			});
 
-	scrollRightButton.addEventListener("click", function () {
-		// check arrows again
-		scrollableDiv.scrollBy({
-			left: scrollableDiv.clientWidth, // scroll by one view
-			behavior: "smooth",
-		});
+			scrollRightButton.addEventListener("click", function () {
+				// check arrows again
+				scrollableDiv.scrollBy({
+					left: scrollableDiv.clientWidth, // scroll by one view
+					behavior: "smooth",
+				});
+			});
+		};
 	});
 });
 // --------------- Extra attributes ---------------

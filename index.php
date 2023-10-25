@@ -51,6 +51,7 @@
 				<div class="popular">
 					<h2>Popular On Netflix</h2>
 					<div class="scroll-container">
+						<!-- Scroll box -->
 						<button class="scroll-button scrollLeft">
 							<svg fill="#fff" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<g data-name="Layer 2">
