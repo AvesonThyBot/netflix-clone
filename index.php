@@ -109,7 +109,7 @@
 				</div>
 				<!-- TV -->
 				<div class="tv">
-					<h2>TV</h2>
+					<h2>Series</h2>
 					<div class="scroll-container">
 						<!-- Scroll box -->
 						<button class="scroll-button scrollLeft">
