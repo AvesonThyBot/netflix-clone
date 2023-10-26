@@ -148,7 +148,7 @@ br {
 .main-display {
 	display: flex;
 	flex-direction: column;
-	gap: 60px;
+	gap: 20px;
 	margin-left: 20px;
 	margin-right: 20px;
 	margin-top: 70px;
@@ -258,5 +258,25 @@ br {
 	border-color: var(--accent);
 }
 /* --------------------- Films css --------------------- */
+.films-display {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	overflow: hidden;
+	gap: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 70px;
+}
 /* --------------------- Series css --------------------- */
+.series-display {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	overflow: hidden;
+	gap: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 70px;
+}
 /* --------------------- My list css --------------------- */

@@ -144,8 +144,26 @@ function displayMain() {
 	displayMovies();
 	displaySeries();
 }
-displayMain();
+// ------- Films display -------
+function displayMovies() {
+	// use https://developer.themoviedb.org/reference/movie-now-playing-list
+	const moviesDiv = document.querySelector(".films-display");
+	fetch("https://api.themoviedb.org/3/tv/111110", options)
+		.then((data) => data.json())
+		.then((data) => {});
+}
+// ------- Series display -------
+function displaySeries() {
+	// use https://developer.themoviedb.org/reference/tv-series-airing-today-list
+	const seriesDiv = document.querySelector(".series-display");
+	fetch("https://api.themoviedb.org/3/tv/111110", options)
+		.then((data) => data.json())
+		.then((data) => {});
+}
 
+displayMain();
+displayMovies();
+displaySeries();
 // --------------- Event listeners ---------------
 // display sections event listener
 document.addEventListener("DOMContentLoaded", function () {

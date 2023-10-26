@@ -171,11 +171,15 @@
 		</main>
 		<!-- Series section -->
 		<section class="series-section netflix-sections" hidden>
-			<p>series section</p>
+			<div class="series-display">
+				
+			</div>
 		</section>
 		<!-- Film sections -->
 		<section class="films-section netflix-sections" hidden>
-			<p>films section</p>
+			<div class="films-display">
+				
+			</div>
 		</section>
 		<!-- My list section -->
 		<section class="my-list-section netflix-sections" hidden>
