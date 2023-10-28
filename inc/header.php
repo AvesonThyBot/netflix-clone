@@ -67,10 +67,10 @@ if (isset($_GET['action'])) {
                         <a class="nav-link my-list-navbar-section navbar-sections">My List</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 search-bar" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn search-btn" type="submit">Search</button>
-                </form>
+                <div class="d-flex">
+                    <input class="me-2 search-bar" type="text" placeholder="Search"/>
+                    <button class="btn search-btn" type="button">Search</button>
+                </div>
                 <!-- Search bar -->
             </div>
             <div class="navbar-nav me-auto">

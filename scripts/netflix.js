@@ -310,6 +310,34 @@ function displaySeries() {
 function displayMyList() {
 	console.log("hey");
 }
+// ------- Display search -------
+function search(value) {
+	//assigned test data for now
+	fetch(`https://api.themoviedb.org/3/search/multi?query=${value}&include_adult=false&language=en-US&page=1`, options)
+		.then((data) => data.json())
+		.then((data) => {
+			// assign up to 100
+			let fetch_limit;
+			if (data.total_pages < 5) {
+				fetch_limit = data.total_pages;
+			} else {
+				fetch_limit = 5;
+			}
+			let total_data = data.results;
+			// for loop to get data
+			for (let page = 2; page <= fetch_limit; page++) {
+				fetch(`https://api.themoviedb.org/3/search/multi?query=${value}&include_adult=false&language=en-US&page=${page}`, options)
+					.then((data) => data.json())
+					.then((data) => {
+						for (let index = 0; index < data.results.length; index++) {
+							total_data.push(data.results[index]);
+						}
+					});
+			}
+			console.log(total_data);
+		});
+}
+
 // --------------- Event listeners ---------------
 // display sections event listener
 document.addEventListener("DOMContentLoaded", function () {
@@ -402,6 +430,20 @@ document.addEventListener("DOMContentLoaded", function () {
 		};
 	});
 });
+
+// Search on click and enter
+document.querySelector(".search-btn").onclick = () => {
+	// givei t the value
+	search(document.querySelector(".search-bar").value);
+};
+// press enter to search
+document.querySelector(".search-bar").addEventListener("keydown", function (event) {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		search(document.querySelector(".search-bar").value);
+	}
+});
+
 // --------------- Extra attributes ---------------
 document.querySelector(".navbar-brand").setAttribute("draggable", false);
 // https://developer.themoviedb.org/reference/intro/getting-started

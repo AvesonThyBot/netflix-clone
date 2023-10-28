@@ -259,6 +259,8 @@ br {
 }
 .search-bar {
 	border-color: var(--accent);
+	border-radius: 0.375rem;
+	outline: none;
 }
 .search-btn:focus,
 .search-btn:active {
