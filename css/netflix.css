@@ -49,7 +49,7 @@ body::-webkit-scrollbar-thumb {
 }
 /* Override Bootstrap dropdown styles */
 .dropdown-menu {
-	margin-top: 20px !important;
+	margin-top: 10px !important;
 	color: var(--text) !important;
 	background-color: var(--primary-hover) !important;
 	border-color: var(--primary) !important;

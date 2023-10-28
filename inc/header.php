@@ -79,7 +79,7 @@ if (isset($_GET['action'])) {
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="/img/icon.png" alt="profile picture" />
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
+                    <ul class="dropdown-menu dropdown-menu-end w-100 mw-100">
                         <?php if (isset($_COOKIE["is_logged_in"])) { ?>
                             <li><a class="dropdown-item" href="/profile.php">Profile</a></li>
                             <li>
