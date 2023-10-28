@@ -1,11 +1,10 @@
 // --------------- Event listeners ---------------
-// display correct section based query string
 document.addEventListener("DOMContentLoaded", function () {
+	// display correct section based query string
 	let webUrl = window.location.search;
 	webUrl = new URLSearchParams(webUrl);
 	webUrl = webUrl.get("type");
 	if (webUrl == "login" || webUrl == "register") {
-		console.log(webUrl, "if");
 		const sectionType = `${webUrl.toLowerCase()}-section`;
 		const selectedSection = document.querySelector(`.${sectionType}`);
 		selectedSection.removeAttribute("hidden", "hidden");
@@ -37,10 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.querySelector(".navbar-login").classList.add("active");
 		document.title = "Login - Netflix";
 	}
-});
 
-// display sections event listener
-document.addEventListener("DOMContentLoaded", function () {
+	// display sections event listener
 	const sections = document.querySelectorAll(".navbar-sections");
 	sections.forEach((section) => {
 		section.addEventListener("click", function () {
