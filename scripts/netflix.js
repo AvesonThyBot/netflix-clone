@@ -324,6 +324,9 @@ function search(search_value) {
 				fetch_limit = 5;
 			}
 			// Changes after searching
+			document.querySelectorAll(".navbar-sections").forEach((section) => {
+				section.classList.remove("active");
+			});
 			document.querySelector(".search-bar").value = "";
 			document.querySelector(".search-bar").placeholder = search_value;
 			document.querySelector(".search-title").textContent = `Search results for '${search_value}'`;
@@ -336,6 +339,7 @@ function search(search_value) {
 			document.querySelector(".search-section").removeAttribute("hidden");
 			// displaying data
 			const searchContainer = document.querySelector(".search-box");
+			searchContainer.innerHTML = "";
 			// for loop to get data and save data
 			for (let page = 1; page <= fetch_limit; page++) {
 				fetch(`https://api.themoviedb.org/3/search/multi?query=${search_value}&include_adult=false&language=en-US&page=${page}`, options)
