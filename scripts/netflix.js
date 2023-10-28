@@ -311,9 +311,9 @@ function displayMyList() {
 	console.log("hey");
 }
 // ------- Display search -------
-function search(value) {
+function search(search_value) {
 	//assigned test data for now
-	fetch(`https://api.themoviedb.org/3/search/multi?query=${value}&include_adult=false&language=en-US&page=1`, options)
+	fetch(`https://api.themoviedb.org/3/search/multi?query=${search_value}&include_adult=false&language=en-US&page=1`, options)
 		.then((data) => data.json())
 		.then((data) => {
 			// assign up to 100
@@ -323,18 +323,27 @@ function search(value) {
 			} else {
 				fetch_limit = 5;
 			}
-			let total_data = data.results;
-			// for loop to get data
-			for (let page = 2; page <= fetch_limit; page++) {
-				fetch(`https://api.themoviedb.org/3/search/multi?query=${value}&include_adult=false&language=en-US&page=${page}`, options)
+			// Changes after searching
+			document.querySelector(".search-bar").value = "";
+			document.querySelector(".search-bar").placeholder = search_value;
+			// hide all section
+			document.querySelectorAll(".netflix-sections").forEach((section) => {
+				section.setAttribute("hidden", "hidden");
+			});
+			// display search section
+			document.querySelector(".search-section").removeAttribute("hidden");
+			// displaying data
+			const searchContainer = document.querySelector(".search-box");
+			// for loop to get data and save data
+			for (let page = 1; page <= fetch_limit; page++) {
+				fetch(`https://api.themoviedb.org/3/search/multi?query=${search_value}&include_adult=false&language=en-US&page=${page}`, options)
 					.then((data) => data.json())
 					.then((data) => {
 						for (let index = 0; index < data.results.length; index++) {
-							total_data.push(data.results[index]);
+							searchContainer.innerHTML += `<div class="box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 						}
 					});
 			}
-			console.log(total_data);
 		});
 }
 

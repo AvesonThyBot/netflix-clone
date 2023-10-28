@@ -430,5 +430,12 @@ if (count($_COOKIE) == 0) {
 		<section class="my-list-section netflix-sections" hidden>
 			<p>my list</p>
 		</section>
+		<!-- Search Section -->
+		<section class="search-section netflix-sections" hidden>
+			<h1 class="search-title">Search for ...</h1>
+			<!-- Container for the search results -->
+			<div class="search-box">
+			</div>
+		</section>
 <!-- Footer -->
 <?php include "inc/footer.php"; ?>
