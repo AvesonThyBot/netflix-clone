@@ -81,15 +81,6 @@ function title(data_name, type) {
 	}
 }
 // --------------- All displaying function ---------------
-// console log data
-function logData() {
-	fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_watch_providers=netflix", options)
-		.then((data) => data.json())
-		.then((data) => {
-			console.log(data);
-		});
-}
-// logData();
 // ------- Main display -------
 function displayMain() {
 	// display hero
@@ -190,7 +181,7 @@ function displayMovies() {
 			.then((data) => data.json())
 			.then((data) => {
 				// console.log(data);
-				const popularBox = document.querySelector(".popular-films").querySelector(".popular-box");
+				const popularBox = document.querySelector(".popular-box-films");
 				popularBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
 					popularBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
@@ -202,7 +193,7 @@ function displayMovies() {
 		fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US", options)
 			.then((data) => data.json())
 			.then((data) => {
-				const trendingBox = document.querySelector(".trending-films").querySelector(".trending-box");
+				const trendingBox = document.querySelector(".trending-box-films");
 				trendingBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
 					trendingBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
@@ -215,7 +206,7 @@ function displayMovies() {
 			.then((data) => data.json())
 			.then((data) => {
 				// console.log(data);
-				const tvBox = document.querySelector(".playing-films").querySelector(".tv-box");
+				const tvBox = document.querySelector(".tv-box-films");
 				tvBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
 					tvBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
@@ -230,7 +221,7 @@ function displayMovies() {
 			.then((data) => data.json())
 			.then((data) => {
 				// console.log(data);
-				const filmBox = document.querySelector(".upcoming-films").querySelector(".films-box");
+				const filmBox = document.querySelector(".films-box-films");
 				filmBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
 					filmBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
@@ -336,13 +327,19 @@ document.addEventListener("DOMContentLoaded", function () {
 		// assign the currently used div
 		// Add click event listeners
 		scrollLeftButton.onclick = () => {
+			console.log("Left button clicked!");
+			console.log("Container width:", scrollableDiv.clientWidth);
+			console.log(scrollableDiv);
 			scrollableDiv.scrollBy({
 				left: -scrollableDiv.clientWidth, // scroll by one view
 				behavior: "smooth",
 			});
 		};
 		scrollRightButton.onclick = () => {
-			// check arrows again
+			console.log("Right button clicked!");
+			console.log("Container width:", scrollableDiv.clientWidth);
+			console.log(scrollableDiv);
+
 			scrollableDiv.scrollBy({
 				left: scrollableDiv.clientWidth, // scroll by one view
 				behavior: "smooth",
