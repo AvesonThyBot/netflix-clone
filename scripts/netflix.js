@@ -184,11 +184,66 @@ function displayMain() {
 }
 // ------- Films display -------
 function displayMovies() {
-	// use https://developer.themoviedb.org/reference/movie-now-playing-list
-	const moviesDiv = document.querySelector(".films-display");
-	fetch("https://api.themoviedb.org/3/tv/111110", options)
-		.then((data) => data.json())
-		.then((data) => {});
+	// display top rated films
+	function displayTopRated() {
+		fetch("https://api.themoviedb.org/3/movie/top_rated", options)
+			.then((data) => data.json())
+			.then((data) => {
+				// console.log(data);
+				const popularBox = document.querySelector(".popular-box");
+				popularBox.textContent = "";
+				for (let index = 0; index < data.results.length; index++) {
+					popularBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+				}
+			});
+	}
+	// display trending films
+	function displayTrending() {
+		fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US", options)
+			.then((data) => data.json())
+			.then((data) => {
+				const trendingBox = document.querySelector(".trending-box");
+				trendingBox.textContent = "";
+				for (let index = 0; index < data.results.length; index++) {
+					trendingBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+				}
+			});
+	}
+	// display currently in theatres films
+	function displayPlaying() {
+		fetch("https://api.themoviedb.org/3/movie/now_playing", options)
+			.then((data) => data.json())
+			.then((data) => {
+				// console.log(data);
+				const tvBox = document.querySelector(".tv-box");
+				tvBox.textContent = "";
+				for (let index = 0; index < data.results.length; index++) {
+					tvBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+				}
+				// to display image use this:
+				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
+			});
+	}
+	// display upcoming films
+	function displayUpcoming() {
+		fetch("https://api.themoviedb.org/3/movie/upcoming", options)
+			.then((data) => data.json())
+			.then((data) => {
+				// console.log(data);
+				const filmBox = document.querySelector(".films-box");
+				filmBox.textContent = "";
+				for (let index = 0; index < data.results.length; index++) {
+					filmBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+				}
+				// to display image use this:
+				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
+			});
+	}
+	// display all
+	displayTopRated();
+	displayTrending();
+	displayPlaying();
+	displayUpcoming();
 }
 // ------- Series display -------
 function displaySeries() {
