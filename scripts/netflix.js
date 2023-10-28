@@ -26,6 +26,43 @@ const genreObject = {
 	37: "Western",
 };
 
+// Check before displaying main
+if (location.href.includes("?page_type")) {
+	const url = new URL(window.location.href);
+	const sectionType = url.searchParams.get("page_type");
+	const sections = document.querySelectorAll(".navbar-sections");
+	const selectedNavbarSection = document.querySelector(`.${sectionType}-navbar-section`);
+	document.title = `${selectedNavbarSection.textContent} - Netflix`;
+	// remove active
+	sections.forEach((section) => {
+		section.classList.remove("active");
+	});
+	// add active
+	selectedNavbarSection.classList.add("active");
+	// hide all previous netflix sections
+	const netflixSection = document.querySelectorAll(".netflix-sections");
+	netflixSection.forEach((section) => {
+		section.setAttribute("hidden", "hidden");
+	});
+	// display correct section
+	let selectedSection = `${sectionType}-section`;
+	selectedSection = document.querySelector(`.${selectedSection}`);
+	// unhide the picked section
+	selectedSection.removeAttribute("hidden");
+	// removed the url
+	window.pageTypeProcessed = true;
+
+	// Remove the "page_type" parameter from the URL
+	url.searchParams.delete("page_type");
+
+	// Replace the current URL with the modified one
+	window.history.replaceState({}, document.title, url.toString());
+} else {
+	document.title = `Home - Netflix`;
+	document.querySelector(".home-navbar-section").classList.add("active");
+	document.querySelector(".home-section").removeAttribute("hidden");
+}
+
 // --------------- All displaying function ---------------
 // console log data
 function logData() {

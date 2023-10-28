@@ -55,16 +55,16 @@ if (isset($_GET['action'])) {
                 <!-- navbar list -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link navbar-sections active" aria-current="page">Home</a>
+                        <a class="nav-link home-navbar-section navbar-sections" aria-current="page">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-sections">Series</a>
+                        <a class="nav-link series-navbar-section navbar-sections">Series</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-sections">Films</a>
+                        <a class="nav-link films-navbar-section navbar-sections">Films</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-sections">My List</a>
+                        <a class="nav-link my-list-navbar-section navbar-sections">My List</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">

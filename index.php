@@ -4,10 +4,13 @@ if (count($_COOKIE) == 0) {
     header("Location:account.php?type=login");
 }
 ?>
+
+
+
 <!-- Header -->
 <?php include "inc/header.php"; ?>
 		<!-- Main netflix display -->
-		<main class="home-section netflix-sections">
+		<main class="home-section netflix-sections" hidden>
 			<!-- Hero -->
 			<div class="hero">
 				<!-- background video -->
