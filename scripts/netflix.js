@@ -26,6 +26,7 @@ const genreObject = {
 	37: "Western",
 };
 
+// --------------- Extra function & code ---------------
 // Check before displaying main
 if (location.href.includes("?page_type")) {
 	const url = new URL(window.location.href);
@@ -63,7 +64,22 @@ if (location.href.includes("?page_type")) {
 	document.querySelector(".home-section").removeAttribute("hidden");
 	displayMain();
 }
-
+// function to check if its name or title
+function title(data_name, type) {
+	if (type == 1) {
+		if (data_name.name == undefined) {
+			return data_name.title.toLowerCase().replace(/ /g, "-");
+		} else if (data_name.title == undefined) {
+			return data_name.name.toLowerCase().replace(/ /g, "-");
+		}
+	} else {
+		if (data_name.name == undefined) {
+			return data_name.title;
+		} else if (data_name.title == undefined) {
+			return data_name.name;
+		}
+	}
+}
 // --------------- All displaying function ---------------
 // console log data
 function logData() {
@@ -76,22 +92,6 @@ function logData() {
 // logData();
 // ------- Main display -------
 function displayMain() {
-	// function to check if its name or title
-	function title(data_name, type) {
-		if (type == 1) {
-			if (data_name.name == undefined) {
-				return data_name.title.toLowerCase().replace(/ /g, "-");
-			} else if (data_name.title == undefined) {
-				return data_name.name.toLowerCase().replace(/ /g, "-");
-			}
-		} else {
-			if (data_name.name == undefined) {
-				return data_name.title;
-			} else if (data_name.title == undefined) {
-				return data_name.name;
-			}
-		}
-	}
 	// display hero
 	function displayHero() {
 		fetch("https://api.themoviedb.org/3/tv/111110", options)
@@ -190,7 +190,7 @@ function displayMovies() {
 			.then((data) => data.json())
 			.then((data) => {
 				// console.log(data);
-				const popularBox = document.querySelector(".popular-box");
+				const popularBox = document.querySelector(".popular-films").querySelector(".popular-box");
 				popularBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
 					popularBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
@@ -202,7 +202,7 @@ function displayMovies() {
 		fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US", options)
 			.then((data) => data.json())
 			.then((data) => {
-				const trendingBox = document.querySelector(".trending-box");
+				const trendingBox = document.querySelector(".trending-films").querySelector(".trending-box");
 				trendingBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
 					trendingBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
@@ -215,7 +215,7 @@ function displayMovies() {
 			.then((data) => data.json())
 			.then((data) => {
 				// console.log(data);
-				const tvBox = document.querySelector(".tv-box");
+				const tvBox = document.querySelector(".playing-films").querySelector(".tv-box");
 				tvBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
 					tvBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
@@ -230,7 +230,7 @@ function displayMovies() {
 			.then((data) => data.json())
 			.then((data) => {
 				// console.log(data);
-				const filmBox = document.querySelector(".films-box");
+				const filmBox = document.querySelector(".upcoming-films").querySelector(".films-box");
 				filmBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
 					filmBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;

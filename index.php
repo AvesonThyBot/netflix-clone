@@ -306,7 +306,7 @@ if (count($_COOKIE) == 0) {
 			<div class="films-display">
 				<!-- Popular On Netflix -->
 				<div class="popular-films">
-					<h2>Popular On Netflix</h2>
+					<h2>Popular Films</h2>
 					<div class="scroll-container">
 						<!-- Scroll box -->
 						<button class="scroll-button scrollLeft">
@@ -336,7 +336,7 @@ if (count($_COOKIE) == 0) {
 				</div>
 				<!-- Trending Now -->
 				<div class="trending-films">
-					<h2>Trending Now</h2>
+					<h2>Trending Films</h2>
 					<div class="scroll-container">
 						<!-- Scroll box -->
 						<button class="scroll-button scrollLeft">
@@ -366,7 +366,7 @@ if (count($_COOKIE) == 0) {
 				</div>
 				<!-- Playing currently -->
 				<div class="playing-films">
-					<h2>Series</h2>
+					<h2>Newly Released Films</h2>
 					<div class="scroll-container">
 						<!-- Scroll box -->
 						<button class="scroll-button scrollLeft">
@@ -396,7 +396,7 @@ if (count($_COOKIE) == 0) {
 				</div>
 				<!-- Upcoming Films -->
 				<div class="upcoming-films">
-					<h2>Films</h2>
+					<h2>Upcoming Films</h2>
 					<div class="scroll-container">
 						<!-- Scroll box -->
 						<button class="scroll-button scrollLeft">
