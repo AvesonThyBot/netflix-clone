@@ -326,6 +326,8 @@ function search(search_value) {
 			// Changes after searching
 			document.querySelector(".search-bar").value = "";
 			document.querySelector(".search-bar").placeholder = search_value;
+			document.querySelector(".search-title").textContent = `Search results for '${search_value}'`;
+			document.title = "Search - Netflix";
 			// hide all section
 			document.querySelectorAll(".netflix-sections").forEach((section) => {
 				section.setAttribute("hidden", "hidden");
