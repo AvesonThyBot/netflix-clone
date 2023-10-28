@@ -80,6 +80,13 @@ function title(data_name, type) {
 		}
 	}
 }
+function image(data_image) {
+	if (data_image == null) {
+		return "/img/null_image.png";
+	} else {
+		return `https://image.tmdb.org/t/p/original${data_image}`;
+	}
+}
 // --------------- All displaying function ---------------
 // ------- Main display -------
 function displayMain() {
@@ -121,7 +128,7 @@ function displayMain() {
 				const popularBox = document.querySelector(".popular-box");
 				popularBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					popularBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					popularBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 			});
 	}
@@ -133,7 +140,7 @@ function displayMain() {
 				const trendingBox = document.querySelector(".trending-box");
 				trendingBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					trendingBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					trendingBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 			});
 	}
@@ -146,7 +153,7 @@ function displayMain() {
 				const tvBox = document.querySelector(".tv-box");
 				tvBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					tvBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					tvBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 				// to display image use this:
 				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
@@ -161,7 +168,7 @@ function displayMain() {
 				const filmBox = document.querySelector(".films-box");
 				filmBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					filmBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					filmBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 				// to display image use this:
 				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
@@ -184,7 +191,7 @@ function displayMovies() {
 				const popularBox = document.querySelector(".popular-box-films");
 				popularBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					popularBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					popularBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 			});
 	}
@@ -196,7 +203,7 @@ function displayMovies() {
 				const trendingBox = document.querySelector(".trending-box-films");
 				trendingBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					trendingBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					trendingBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 			});
 	}
@@ -209,7 +216,7 @@ function displayMovies() {
 				const tvBox = document.querySelector(".tv-box-films");
 				tvBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					tvBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					tvBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 				// to display image use this:
 				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
@@ -224,7 +231,7 @@ function displayMovies() {
 				const filmBox = document.querySelector(".films-box-films");
 				filmBox.textContent = "";
 				for (let index = 0; index < data.results.length; index++) {
-					filmBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="https://image.tmdb.org/t/p/original${data.results[index].backdrop_path}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+					filmBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
 				}
 				// to display image use this:
 				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
@@ -238,11 +245,66 @@ function displayMovies() {
 }
 // ------- Series display -------
 function displaySeries() {
-	// use https://developer.themoviedb.org/reference/tv-series-airing-today-list
-	const seriesDiv = document.querySelector(".series-display");
-	fetch("https://api.themoviedb.org/3/tv/111110", options)
-		.then((data) => data.json())
-		.then((data) => {});
+	// display top rated series
+	function displayTopRated() {
+		fetch("https://api.themoviedb.org/3/tv/top_rated", options)
+			.then((data) => data.json())
+			.then((data) => {
+				// console.log(data);
+				const popularBox = document.querySelector(".popular-box-series");
+				popularBox.textContent = "";
+				for (let index = 0; index < data.results.length; index++) {
+					popularBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+				}
+			});
+	}
+	// display trending series
+	function displayTrending() {
+		fetch("https://api.themoviedb.org/3/trending/tv/day?language=en-US", options)
+			.then((data) => data.json())
+			.then((data) => {
+				const trendingBox = document.querySelector(".trending-box-series");
+				trendingBox.textContent = "";
+				for (let index = 0; index < data.results.length; index++) {
+					trendingBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+				}
+			});
+	}
+	// display currently airing series
+	function displayAiringToday() {
+		fetch("https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1", options)
+			.then((data) => data.json())
+			.then((data) => {
+				// console.log(data);
+				const tvBox = document.querySelector(".tv-box-series");
+				tvBox.textContent = "";
+				for (let index = 0; index < data.results.length; index++) {
+					tvBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+				}
+				// to display image use this:
+				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
+			});
+	}
+	// display on the air series
+	function displayOnTheAir() {
+		fetch("https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1", options)
+			.then((data) => data.json())
+			.then((data) => {
+				// console.log(data);
+				const filmBox = document.querySelector(".films-box-series");
+				filmBox.textContent = "";
+				for (let index = 0; index < data.results.length; index++) {
+					filmBox.innerHTML += `<div class="${title(data.results[index], 1)} box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+				}
+				// to display image use this:
+				//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
+			});
+	}
+	// display all
+	displayTopRated();
+	displayTrending();
+	displayAiringToday();
+	displayOnTheAir();
 }
 // ------- My list display -------
 function displayMyList() {
@@ -327,19 +389,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		// assign the currently used div
 		// Add click event listeners
 		scrollLeftButton.onclick = () => {
-			console.log("Left button clicked!");
-			console.log("Container width:", scrollableDiv.clientWidth);
-			console.log(scrollableDiv);
 			scrollableDiv.scrollBy({
 				left: -scrollableDiv.clientWidth, // scroll by one view
 				behavior: "smooth",
 			});
 		};
 		scrollRightButton.onclick = () => {
-			console.log("Right button clicked!");
-			console.log("Container width:", scrollableDiv.clientWidth);
-			console.log(scrollableDiv);
-
 			scrollableDiv.scrollBy({
 				left: scrollableDiv.clientWidth, // scroll by one view
 				behavior: "smooth",
