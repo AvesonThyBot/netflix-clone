@@ -68,8 +68,8 @@ if (isset($_GET['action'])) {
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control me-2 search-bar" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success search-btn" type="submit">Search</button>
                 </form>
                 <!-- Search bar -->
             </div>
