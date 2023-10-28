@@ -1,3 +1,9 @@
+<?php 
+// send back to login if they arent logged in.
+if (count($_COOKIE) == 0) {
+    header("Location:account.php?type=login");
+}
+?>
 <!-- Header -->
 <?php include "inc/header.php"; ?>
 		<!-- Main netflix display -->
