@@ -45,7 +45,7 @@ if (isset($_GET['action'])) {
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <img class="navbar-brand img-fluid" src="/img/netflix.png" alt="logo" />
+            <img class="navbar-brand img-fluid" src="/img/netflix.png" alt="logo" draggable="false"/>
             <!-- Button when compressed -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

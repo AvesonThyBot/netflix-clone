@@ -458,10 +458,3 @@ document.querySelector(".search-bar").addEventListener("keydown", function (even
 		search(document.querySelector(".search-bar").value);
 	}
 });
-
-// --------------- Extra attributes ---------------
-document.querySelector(".navbar-brand").setAttribute("draggable", false);
-// https://developer.themoviedb.org/reference/intro/getting-started
-// 213 (network id for netflix)
-// to display image use this:
-//`<img src="https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}"/>`; (swap result number with picked number, change backdrop_path with poster_path if needed)
