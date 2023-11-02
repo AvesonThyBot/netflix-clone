@@ -1,0 +1,36 @@
+/* Netflix colour pallete */
+:root {
+	--text: #e6e6e6;
+	--background: #141414;
+	--primary: #000000;
+	--primary-hover: rgba(0, 0, 0, 0.7);
+	--secondary: #ffffff;
+	--accent: #b9090c;
+	--secondary-hover: #888888;
+	--unselected: #acacac;
+}
+/* --------------------- Login css --------------------- */
+.search-btn {
+	border-color: var(--accent);
+	color: var(--secondary);
+}
+.search-btn:hover {
+	background-color: var(--accent);
+	color: var(--primary);
+	border-color: var(--accent);
+}
+.search-btn:focus {
+	outline: var(--accent);
+}
+.search-bar {
+	border-color: var(--accent);
+	border-radius: 0.375rem;
+	outline: none;
+}
+.search-btn:focus,
+.search-btn:active {
+	box-shadow: none !important;
+	border-color: var(--accent) !important;
+}
+
+/* --------------------- Register css --------------------- */
