@@ -292,3 +292,8 @@ br {
 .search-box div {
 	max-width: 200px;
 }
+
+.invalid-results {
+	margin: auto 0;
+	position: absolute;
+}

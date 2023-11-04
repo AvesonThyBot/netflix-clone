@@ -312,13 +312,13 @@ function displayMyList() {
 }
 // ------- Display search -------
 function search(search_value) {
+	// if given value is empty
 	if (search_value.replace(/\s/g, "").length <= 0) {
 		// Changes after searching
 		document.querySelectorAll(".navbar-sections").forEach((section) => {
 			section.classList.remove("active");
 		});
 		document.querySelector(".search-bar").value = "";
-		document.querySelector(".search-bar").placeholder = search_value;
 		document.querySelector(".search-title").textContent = `Invalid Search!`;
 		document.title = "Search - Netflix";
 		// hide all section
@@ -328,7 +328,7 @@ function search(search_value) {
 		// display search section
 		document.querySelector(".search-section").removeAttribute("hidden");
 		// displaying data
-		document.querySelector(".search-box").innerHTML = `<div>Invalid</div>`;
+		document.querySelector(".search-box").innerHTML = `<div class="invalid-results">Search Again</div>`;
 	} else {
 		//assigned test data for now
 		fetch(`https://api.themoviedb.org/3/search/multi?query=${search_value}&include_adult=false&language=en-US&page=1`, options)
@@ -341,32 +341,50 @@ function search(search_value) {
 				} else {
 					fetch_limit = 5;
 				}
-				// Changes after searching
-				document.querySelectorAll(".navbar-sections").forEach((section) => {
-					section.classList.remove("active");
-				});
-				document.querySelector(".search-bar").value = "";
-				document.querySelector(".search-bar").placeholder = search_value;
-				document.querySelector(".search-title").textContent = `Search results for '${search_value}'`;
-				document.title = "Search - Netflix";
-				// hide all section
-				document.querySelectorAll(".netflix-sections").forEach((section) => {
-					section.setAttribute("hidden", "hidden");
-				});
-				// display search section
-				document.querySelector(".search-section").removeAttribute("hidden");
-				// displaying data
-				const searchContainer = document.querySelector(".search-box");
-				searchContainer.innerHTML = "";
-				// for loop to get data and save data
-				for (let page = 1; page <= fetch_limit; page++) {
-					fetch(`https://api.themoviedb.org/3/search/multi?query=${search_value}&include_adult=false&language=en-US&page=${page}`, options)
-						.then((data) => data.json())
-						.then((data) => {
-							for (let index = 0; index < data.results.length; index++) {
-								searchContainer.innerHTML += `<div class="box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
-							}
-						});
+				if (data.total_pages <= 0) {
+					// Changes after searching
+					document.querySelectorAll(".navbar-sections").forEach((section) => {
+						section.classList.remove("active");
+					});
+					document.querySelector(".search-bar").value = "";
+					document.querySelector(".search-title").textContent = `Invalid Search!`;
+					document.title = "Search - Netflix";
+					// hide all section
+					document.querySelectorAll(".netflix-sections").forEach((section) => {
+						section.setAttribute("hidden", "hidden");
+					});
+					// display search section
+					document.querySelector(".search-section").removeAttribute("hidden");
+					// displaying data
+					document.querySelector(".search-box").innerHTML = `<div class="invalid-results">Search Again</div>`;
+				} else {
+					// Changes after searching
+					document.querySelectorAll(".navbar-sections").forEach((section) => {
+						section.classList.remove("active");
+					});
+					document.querySelector(".search-bar").value = "";
+					document.querySelector(".search-bar").placeholder = search_value;
+					document.querySelector(".search-title").textContent = `Search results for '${search_value}'`;
+					document.title = "Search - Netflix";
+					// hide all section
+					document.querySelectorAll(".netflix-sections").forEach((section) => {
+						section.setAttribute("hidden", "hidden");
+					});
+					// display search section
+					document.querySelector(".search-section").removeAttribute("hidden");
+					// displaying data
+					const searchContainer = document.querySelector(".search-box");
+					searchContainer.innerHTML = "";
+					// for loop to get data and save data
+					for (let page = 1; page <= fetch_limit; page++) {
+						fetch(`https://api.themoviedb.org/3/search/multi?query=${search_value}&include_adult=false&language=en-US&page=${page}`, options)
+							.then((data) => data.json())
+							.then((data) => {
+								for (let index = 0; index < data.results.length; index++) {
+									searchContainer.innerHTML += `<div class="box-container"><img draggable="false" (dragstart)="false;" class="popular-item-image" src="${image(data.results[index].backdrop_path)}" alt="image of ${title(data.results[index], 2)}"/><span>${title(data.results[index], 2)}</span></div>`;
+								}
+							});
+					}
 				}
 			});
 	}
