@@ -36,8 +36,8 @@ if (isset($_POST['btnRegister'])) {
     $password = password_hash($_POST["txtPassword"], CRYPT_BLOWFISH);
 
     $sql = "INSERT INTO account (first_name, second_name, email, password_text) VALUES ('$first_name', '$last_name', '$email', '$password')";
-    $result = mysqli_query($conn, $sql);
-    header("Location:account.php?type='login'");
+    $result = mysqli_query($conn, $sql); //add to server
+	header("Location:account.php?type='login'"); //login after register
 }
 
 
