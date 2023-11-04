@@ -422,20 +422,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				document.querySelector(".btn-volume").innerHTML = volumeMute;
 			}
 			// Run certain function depending on page
-			switch (selectedSection.classList[0]) {
-				case "home-section":
-					displayMain();
-					break;
-				case "series-section":
-					displaySeries();
-					break;
-				case "films-section":
-					displayMovies();
-					break;
-				case "my-list-section":
-					displayMyList();
-					break;
-			}
+			displayMain();
+			displaySeries();
+			displayMovies();
+			displayMyList();
 		});
 	});
 });
